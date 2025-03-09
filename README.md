@@ -1,5 +1,7 @@
-A Lush Theme for Neovim.
-===
+# A Lush Theme for Neovim.
 
-See: http://git.io/lush.nvim for more information on Lush and a helper script
-to setup your repo clone.
+Deep red and cyan color scheme for NeoVim. Designed to mimic the terminal scheme from Cyberpunk 2077.
+
+Inspired by [Daemon mk2 KDE Theme](https://github.com/MathisP75/daemon-kde-mk2)
+
+See: http://git.io/lush.nvim for more information on Lush.
