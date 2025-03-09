@@ -1,6 +1,4 @@
 --
--- Built with,
---
 --        ,gggg,
 --       d8" "8I                         ,dPYb,
 --       88  ,dP                         IP'`Yb
@@ -45,38 +43,35 @@
 local lush = require("lush")
 local hsl = lush.hsl
 
--- Original Bold Colors
-local white = hsl(183, 105, 93)
-local grey = hsl(183, 6, 65)
-local grey = hsl(183, 6, 41)
-local red0 = hsl(1, 100, 22)
-local dred0 = "hsl(1,52,22)"
-local red1 = "hsl(353,96,59)"
-local red2 = "hsl(3,100,64)"
-local dred1 = "hsl(357,74,40)"
-local dred2 = "hsl(353,49,60)"
-local yellow0 = "hsl(58,100,79)"
-local dylw0 = "hsl(58,100,50)"
-local yellow1 = "hsl(50,81,64)"
-local orange0 = "hsl(34,106,57)"
-local orange1 = "hsl(34,100,37)"
-local green0 = "hsl(149,67,47)"
-local dgreen0 = "hsl(149,52,56)"
-local dgreen1 = "hsl(173,71,49)"
-local cyan0 = "hsl(173,77,44)"
-local blue0 = "hsl(184,99,68)"
-local purple0 = "hsl(260,60,65)"
-local dpurple0 = "hsl(260,34,50)"
-local pink0 = "hsl(323,73,61)"
-local dpink0 = "hsl(323,58,61)"
-local dpink1 = "hsl(311,59,53)"
-local dpink2 = "hsl(299,62,46)"
-local magenta0 = "hsl(299,75,46)"
-local redblack0 = "hsl(229,12,17)"
-local redblack1 = "hsl(349,46,14)"
-local redblack2 = "hsl(338,40,9)"
-local black0 = "hsl(210,60,4)"
-local deepblue0 = "hsl(256,32,9)"
+hsl(183, 105, 93)
+hsl(183, 6, 65)
+hsl(183, 6, 41)
+hsl(1, 100, 22)
+hsl(1, 52, 22)
+hsl(353, 96, 59)
+hsl(3, 100, 64)
+hsl(357, 74, 40)
+hsl(353, 49, 60)
+hsl(58, 100, 79)
+hsl(58, 100, 50)
+hsl(50, 81, 64)
+hsl(34, 106, 57)
+hsl(34, 100, 37)
+hsl(149, 67, 47)
+hsl(173, 71, 49)
+hsl(184, 99, 68)
+hsl(260, 60, 65)
+hsl(260, 34, 50)
+hsl(323, 73, 61)
+hsl(323, 58, 61)
+hsl(311, 59, 53)
+hsl(299, 75, 46)
+hsl(229, 12, 17)
+hsl(349, 46, 14)
+hsl(338, 40, 9)
+hsl(210, 60, 4)
+hsl(256, 32, 9)
+
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 --@diagnostic disable: undefined-global
@@ -110,7 +105,7 @@ local theme = lush(function(injected_functions)
         -- TermCursor     { }, -- Cursor in a focused terminal
         -- TermCursorNC   { }, -- Cursor in an unfocused terminal
         -- ErrorMsg       { }, -- Error messageson the command line
-        -- VertSplit      { }, -- Column separating vertically split windows
+        VertSplit({ bg = hsl(3, 100, 64) }), -- Column separating vertically split windows
         -- Folded         { }, -- Line used for closed folds
         -- FoldColumn     { }, -- 'foldcolumn'
         -- SignColumn     { }, -- Column where |signs| are displayed
@@ -128,10 +123,10 @@ local theme = lush(function(injected_functions)
         -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
         -- MoreMsg        { }, -- |more-prompt|
         -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-        Normal({ bg = hsl(343, 44, 7), fg = hsl(173, 77, 44) }), -- Normal text
+        Normal({ bg = hsl(343, 44, 7), fg = hsl(184, 99, 68) }), -- Normal text
         -- NormalFloat    { }, -- Normal text in floating windows.
-        -- FloatBorder    { }, -- Border of floating windows.
-        -- FloatTitle     { }, -- Title of floating windows.
+        FloatBorder({ fg = hsl(3, 100, 64) }), -- Border of floating windows.
+        FloatTitle({ fg = hsl(184, 99, 68) }), -- Title of floating windows.
         -- NormalNC       { }, -- normal text in non-current windows
         -- Pmenu          { }, -- Popup menu: Normal item.
         -- PmenuSel       { }, -- Popup menu: Selected item.
@@ -172,25 +167,25 @@ local theme = lush(function(injected_functions)
         --
         -- Uncomment and edit if you want more specific syntax highlighting.
 
-        Comment({ fg = hsl(184, 99, 68) }), -- Any comment
+        Comment({ fg = hsl(183, 6, 65) }), -- Any comment
 
-        -- Constant       { }, -- (*) Any constant
-        -- String         { }, --   A string constant: "this is a string"
-        -- Character      { }, --   A character constant: 'c', '\n'
-        -- Number         { }, --   A number constant: 234, 0xff
-        -- Boolean        { }, --   A boolean constant: TRUE, false
-        -- Float          { }, --   A floating point constant: 2.3e10
+        Constant({ fg = hsl(173, 71, 49) }), -- (*) Any constant
+        String({ fg = hsl(149, 67, 47) }), --   A string constant: "this is a string"
+        Character({ fg = hsl(173, 71, 49) }), --   A character constant: 'c', '\n'
+        Number({ fg = hsl(299, 75, 46) }), --   A number constant: 234, 0xff
+        Boolean({ fg = hsl(34, 106, 57) }), --   A boolean constant: TRUE, false
+        Float({ fg = hsl(323, 58, 61) }), --   A floating point constant: 2.3e10
 
-        -- Identifier     { }, -- (*) Any variable name
-        -- Function       { }, --   Function name (also: methods for classes)
+        Identifier({ fg = hsl(173, 71, 49) }), -- (*) Any variable name
+        Function({ fg = hsl(58, 100, 50) }), --   Function name (also: methods for classes)
 
-        -- Statement      { }, -- (*) Any statement
-        -- Conditional    { }, --   if, then, else, endif, switch, etc.
-        -- Repeat         { }, --   for, do, while, etc.
-        -- Label          { }, --   case, default, etc.
-        -- Operator       { }, --   "sizeof", "+", "*", etc.
-        -- Keyword        { }, --   any other keyword
-        -- Exception      { }, --   try, catch, throw
+        Statement({ fg = hsl(3, 100, 64) }), -- (*) Any statement
+        Conditional({ fg = hsl(3, 100, 64) }), --   if, then, else, endif, switch, etc.
+        Repeat({ fg = hsl(3, 100, 64) }), --   for, do, while, etc.
+        Label({ fg = hsl(3, 100, 64) }), --   case, default, etc.
+        Operator({ fg = hsl(3, 100, 64) }), --   "sizeof", "+", "*", etc.
+        Keyword({ fg = hsl(3, 100, 64) }), --   any other keyword
+        Exception({ fg = hsl(3, 100, 64) }), --   try, catch, throw
 
         -- PreProc        { }, -- (*) Generic Preprocessor
         -- Include        { }, --   Preprocessor #include
@@ -297,7 +292,7 @@ local theme = lush(function(injected_functions)
         -- sym"@function"          { }, -- Function
         -- sym"@function.builtin"  { }, -- Special
         -- sym"@function.macro"    { }, -- Macro
-        -- sym"@parameter"         { }, -- Identifier
+        sym("@parameter")({ fg = hsl(173, 71, 49) }), -- Identifier
         -- sym"@method"            { }, -- Function
         -- sym"@field"             { }, -- Identifier
         -- sym"@property"          { }, -- Identifier
@@ -308,7 +303,7 @@ local theme = lush(function(injected_functions)
         -- sym"@operator"          { }, -- Operator
         -- sym"@keyword"           { }, -- Keyword
         -- sym"@exception"         { }, -- Exception
-        -- sym"@variable"          { }, -- Identifier
+        sym("@variable")({ fg = hsl(184, 99, 68) }), -- Identifier
         -- sym"@type"              { }, -- Type
         -- sym"@type.definition"   { }, -- Typedef
         -- sym"@storageclass"      { }, -- StorageClass
